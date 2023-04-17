@@ -19,9 +19,9 @@ class App extends React.Component{
     super(props);
     this.state={
       items: [
-        {id: 0, title: "Hello world 1", done: true},
+       /* {id: 0, title: "Hello world 1", done: true},
       {id: 1, title: "Hello world 2", done: false},
-      {id: 2, title: "Hello world 3", done: true}
+      {id: 2, title: "Hello world 3", done: true} */
     ]
     };
     }
@@ -35,13 +35,21 @@ class App extends React.Component{
       console.log("items: ",this.state.items);
     }
 
+    delete = (item) =>{
+      const thisItems=this.state.items;
+      console.log("Before Update Items : ",this.state.items)
+      const newItems= thisItems.filter(e => e.id !== item.id);
+      this.setState({items:newItems},()=>{
+        console.log("Update Items : ",this.state.items)
+      });
+    }
 
   render() {
     var todoItems = this.state.items.length> 0 && ( 
     <Paper style={{margin:16}}>
     <List> 
     {this.state.items.map((item,index)=>(
-      <Todo item={item}></Todo>
+      <Todo item={item} key={item.id} delete={this.delete}/>
     ))}
    </List>
    </Paper> 
