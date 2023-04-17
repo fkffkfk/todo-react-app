@@ -5,7 +5,7 @@ class Todo extends React.Component{
     constructor(props){
         super(props);
         this.state={item:props.item, readOnly: true};
-        this.delte=props.delte;
+        this.delete=props.delete;
     }
 
     deleteEventHandler=()=>{
