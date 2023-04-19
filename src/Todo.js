@@ -8,7 +8,7 @@ class Todo extends React.Component{
         this.delete=props.delete;
     }
 
-    deleteEventHandler=()=>{
+    deleteEventHandler =()=>{
         this.delete(this.state.item);
     }
 
