@@ -1,18 +1,19 @@
-import { API_BASE_URL } from "../app-config";
+import { API_BASE_URL } from "../app-config.js";
 
 export function call(api,method,request){
     let options = {
         headers: new Headers({
-            "Content-Type":"application/json",
+            "Content-Type": "application/json",
         }),
-        url: API_BASE_URL + api,
+        url:API_BASE_URL +api,
         method: method,
     };
+    
     if(request){
-        options.body = JSON.stringify(request);
+        options.body =JSON.stringify(request);
     }
-    return fetch(options.url, options).then((response)=>
-    response.json().then((json)=>{
+    return fetch(options.url,options).then((response)=>
+    response.json().then((json)=> {
         if(!response.ok){
             return Promise.reject(json);
         }
