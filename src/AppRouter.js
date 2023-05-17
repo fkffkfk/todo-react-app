@@ -24,9 +24,12 @@ class AppRouter extends React.Component{
                     <div>
                         <Switch>
                             <Route path="/login">
-                                <Login/>
+                                <Login />
                             </Route>
-                            <Route path="/">
+                            <Route path="/signup">
+                                <SignUp />
+                                </Route>
+                                <Route path ="/">
                                 <App/>
                             </Route>
                         </Switch>

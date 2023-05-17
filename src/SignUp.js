@@ -12,6 +12,7 @@ class SignUp extends React.Component{
 }
 handleSubmit(event){
     event.preventDefault();
+    
     const data= new FormData(event.target);
     const username = data.get("username");
     const email =data.get("email");
